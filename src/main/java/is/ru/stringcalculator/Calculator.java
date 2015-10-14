@@ -35,8 +35,19 @@ public class Calculator {
       
     private static int sum(String[] numbers){
  	    int total = 0;
+		boolean exception = false;
+		String e = "Negatives not allowed: ";
         for(String number : numbers){
+			if (toInt(number) < 0)
+			{
+				exception = true;
+				e += number + ",";
+			}
 		    total += toInt(number);
+		}
+		if (exception)
+		{
+			throw new IllegalArgumentException(e.substring(0, e.length() -1));
 		}
 		return total;
     }

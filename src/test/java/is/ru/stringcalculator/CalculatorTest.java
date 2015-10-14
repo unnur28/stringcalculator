@@ -30,12 +30,20 @@ public class CalculatorTest {
     }
 	
 	@Test
-	public void testNewLine(){
+	public void testNewLine()
+	{
 		assertEquals(6, Calculator.add("1\n2,3"));
 	}
 
 	@Test
-	public void testCustomDelimiter(){
+	public void testCustomDelimiter()
+	{
 		assertEquals(3, Calculator.add("//;\n1;2"));
+	}
+	
+	@Test (expected = IllegalArgumentException.class)
+	public void testNegative()
+	{
+		Calculator.add("2,-4,3,-5");
 	}
 }
