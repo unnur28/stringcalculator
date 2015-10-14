@@ -34,16 +34,20 @@ public class Calculator {
 	}
       
     private static int sum(String[] numbers){
- 	    int total = 0;
+ 	    int total = 0, num;
 		boolean exception = false;
 		String e = "Negatives not allowed: ";
         for(String number : numbers){
-			if (toInt(number) < 0)
+			num = toInt(number);
+			if (num < 0)
 			{
 				exception = true;
 				e += number + ",";
 			}
-		    total += toInt(number);
+			if (num <= 1000)
+			{
+				total += num;
+			}    
 		}
 		if (exception)
 		{
