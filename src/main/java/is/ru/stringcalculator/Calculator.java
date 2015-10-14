@@ -27,9 +27,19 @@ public class Calculator {
 	
 	private static String[] customSplit(String numbers)
 	{
+		String delimiter = "";
 		String[] temp = new String[2];
 		temp = numbers.split("\\n");
-		String delimiter = temp[0].substring(2);
+		
+		if (temp[0].substring(2,3).equals("["))
+		{
+			delimiter = temp[0].substring(3, temp[0].lastIndexOf("]"));
+		}
+		else
+		{
+			delimiter = temp[0].substring(2);
+		}
+		delimiter = delimiter.replace("*", "\\*");
 		return temp[1].split(delimiter);
 	}
       
