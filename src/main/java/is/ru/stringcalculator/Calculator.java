@@ -39,7 +39,6 @@ public class Calculator {
 				delimiter += del[i].substring(del[i].lastIndexOf("[") + 1) + "|";
 			}
 			delimiter = delimiter.substring(0, delimiter.length() - 1);
-			System.out.println(delimiter);
 		}
 		else
 		{

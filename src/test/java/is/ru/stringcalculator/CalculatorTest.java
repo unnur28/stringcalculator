@@ -41,10 +41,17 @@ public class CalculatorTest {
 		assertEquals(3, Calculator.add("//;\n1;2"));
 	}
 	
-	@Test (expected = IllegalArgumentException.class)
+	@Test
 	public void testNegative()
 	{
-		Calculator.add("2,-4,3,-5");
+		try
+		{
+			Calculator.add("2,-4,3,-5");
+		}
+		catch (IllegalArgumentException ex)
+		{
+			assertEquals("Negatives not allowed: -4,-5", ex.getMessage());
+		}
 	}
 	
 	@Test
