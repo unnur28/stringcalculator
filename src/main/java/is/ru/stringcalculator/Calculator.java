@@ -30,10 +30,16 @@ public class Calculator {
 		String delimiter = "";
 		String[] temp = new String[2];
 		temp = numbers.split("\\n");
+		String[] del = temp[0].split("]");
 		
 		if (temp[0].substring(2,3).equals("["))
 		{
-			delimiter = temp[0].substring(3, temp[0].lastIndexOf("]"));
+			for (int i = 0; i < del.length; i++)
+			{
+				delimiter += del[i].substring(del[i].lastIndexOf("[") + 1) + "|";
+			}
+			delimiter = delimiter.substring(0, delimiter.length() - 1);
+			System.out.println(delimiter);
 		}
 		else
 		{
@@ -65,7 +71,4 @@ public class Calculator {
 		}
 		return total;
     }
-
-
-
 }
